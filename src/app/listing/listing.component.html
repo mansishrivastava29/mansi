@@ -1,0 +1,60 @@
+<section>
+  <div class="bg" *ngIf="!displaySelected">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+    </div>
+    <div class="table-users">
+      <!-- <div class="header">Candidate</div> -->
+
+      <table cellspacing="0">
+        <tr>
+          <th>Profile</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let item of filterData | filter:term;let i=index;">
+          <td><img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" /></td>
+          <td>{{item.firstName}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>{{item.address}}</td>
+          <td>
+            <span *ngIf="item.shortlist">Selected</span>
+            <button *ngIf="!item.shortlist" (click)="shortlist(item,i)">SHORTLIST</button></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <div class="bg" *ngIf="displaySelected">
+    <img (click)="openSelected()" src="https://img.icons8.com/flat_round/64/000000/back--v1.png">
+    <!-- <div *ngFor="let item of shortlistData">{{item.firstName}}</div> -->
+     <table cellspacing="0">
+       <tr>
+         <th>Profile</th>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Phone</th>
+         <th>Address</th>
+         <th></th>
+       </tr>
+       <tr *ngFor="let item of shortlistData | filter:term;let i=index;">
+         <td><img src="https://i.picsum.photos/id/1005/100/100.jpg" alt="" /></td>
+         <td>{{item.firstName}}</td>
+         <td>{{item.email}}</td>
+         <td>{{item.phone}}</td>
+         <td>{{item.address}}</td>
+         <td>
+           <span *ngIf="item.shortlist">Selected</span>
+           <button *ngIf="!item.shortlist" (click)="shortlist(item,i)">SHORTLIST</button></td>
+       </tr>
+     </table>
+  </div>
+</section>
+<footer>
+  <span (click)="openSelected()">Selected Candidates</span>
+  <span [routerLink]="['/']" routerLinkActive="router-link-active">LOGOUT</span>
+</footer>
