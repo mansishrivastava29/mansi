@@ -33,7 +33,7 @@ table {
   width: 100%;
 
   button {
-    font-size: 22px;
+    font-size: 17px;
     color: white;
     background: #8BC34A;
     padding: 10px;
@@ -42,7 +42,7 @@ table {
   td,
   th {
     padding: $padding;
-    font-size: 24px;
+    font-size: 17px;
     color: black;
   }
 
@@ -138,7 +138,7 @@ table {
   .header {
     background-color: transparent;
     color: lighten($baseColor, 60%);
-    font-size: 2em;
+    font-size: 1em;
     font-weight: 700;
     padding: 0;
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
@@ -224,20 +224,22 @@ section {
   height: 94vh;
 }
 
-td span{
+td span {
   color: red;
   font-size: 20px;
 }
+
 footer {
   display: flex;
   justify-content: space-evenly;
   background: #6e7474;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   padding: 2em;
   width: 99%;
-  color: white;
-  span{
+  color: #fff;
+
+  span {
     text-decoration: underline;
     font-size: 21px;
     cursor: pointer;
